@@ -2,6 +2,7 @@ const express = require('express');
 let router = express.Router();
 const bodyParser = require ('body-parser');
 const model = require("../models")
+const validator = require('validator')
 
 router.get('/',function(req,res){
   model.Student.findAll().then(student =>{
@@ -14,6 +15,8 @@ router.get('/add',function(req,res){
 })
 
 router.post('/add',function(req,res){
+
+if (validator.isEmail(req.body.email)) {
   model.Student.create({
     first_name : req.body.first_name,
     las_name : req.body.last_name,
@@ -21,6 +24,10 @@ router.post('/add',function(req,res){
     createdAt : new Date(),
     updatedAt : new Date()
   }).then(()=>{res.redirect('/student')})
+}else {
+  res.send('maaf email yang anda masukan salah')
+}
+
 })
 
 router.get('/delete/:id',function(req,res){
@@ -38,6 +45,7 @@ router.get('/edit/:id',function(req,res){
 })
 
 router.post('/edit/:id',function(req , res){
+if(validator.isEmail(req.body.email)){
   model.Student.update({
     first_name : req.body.first_name,
     las_name :req.body.last_name,
@@ -45,8 +53,9 @@ router.post('/edit/:id',function(req , res){
     createdAt : new Date(),
     updatedAt : new Date()
   },{where : {id: req.body.id}}).then(()=>{res.redirect('/student')})
-
-
+}else {
+  res.send('maaf email yang anda masukan salah')
+}
 
 })
 
