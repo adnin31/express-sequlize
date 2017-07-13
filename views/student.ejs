@@ -6,18 +6,29 @@
   </head>
   <body>
     <h1>Student</h1>
-    <br><br>
+    <a href="/student/add">Add Student</a>
+    <br> <br>
     <table border="2">
       <tr>
         <th>id</th>
-        <th>Subject</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>email</th>
+        <th>Option</th>
       </tr>
-
+      <%dataStudent.forEach(data=>{%>
+        <tr>
+          <th><%=data.id%></th>
+          <th><%=data.first_name%></th>
+          <th><%=data.las_name%></th>
+          <th><%=data.email%></th>
+          <th><a href="/student/edit/<%=data.id%>">Edit</a>
+          <a href="/student/delete/<%=data.id%>">Delete</a> </th>
+        
+        </tr>
+      <%})%>
     </table>
     <br><br>
-    <form action="/student" method="post">
-      <input type="text" name="name" placeholder="Name Subject">
-      <button type="submit" name="button">Submit</button>
-    </form>
+
   </body>
 </html>
