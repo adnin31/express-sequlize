@@ -17,7 +17,7 @@ module.exports = {
       createdAt : new Date(),
       updatedAt : new Date()
     },{
-      subject_name: 'Kimia',
+      subject_name: 'Ekonomi',
       createdAt : new Date(),
       updatedAt : new Date()
     }],{})
