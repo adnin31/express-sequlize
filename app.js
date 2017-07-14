@@ -19,4 +19,5 @@ app.use('/teacher',teacher)
 let student = require('./routers/student')
 app.use('/student',student)
 
+
 app.listen(3000)

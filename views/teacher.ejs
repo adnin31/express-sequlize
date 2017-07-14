@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Student</title>
+    <title>Teachers</title>
   </head>
   <body>
-    <h1>Teacher</h1>
+    <h1>Teachers</h1>
+    <br>
+    <a href="/teacher/add">Add Teachers</a>
     <br><br>
     <table border="2">
       <tr>
@@ -13,13 +15,19 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
+        <th>Subject</th>
+        <th>Options</th>
       </tr>
+
       <% dataTeacher.forEach(teacher =>{ %>
         <tr>
           <td><%=teacher.id%></td>
           <td><%=teacher.first_name%></td>
           <td><%=teacher.last_name%></td>
           <td><%=teacher.email%></td>
+          <td><%= teacher.Subject.subject_name%></td>
+          <td><a href="/teacher/edit/<%=teacher.id%>">Edit</a>
+              <a href="/teacher/delete/<%=teacher.id%>">Delete</a></td>
         </tr>
       <%})%>
     </table>
