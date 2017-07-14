@@ -4,7 +4,9 @@ const bodyParser = require('body-parser')
 const model = require('../models')
 
 router.get('/',function(req,res){
-  model.Subject.findAll().then(subject =>{
+  model.Subject.findAll({
+    include : [model.Teachers]
+  }).then(subject =>{
     res.render('subject',{dataSubject : subject})
   }).catch(function(){console.log(err);})
 })
