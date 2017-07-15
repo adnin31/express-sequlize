@@ -18,9 +18,9 @@
         <th>Subject</th>
         <th>Options</th>
       </tr>
-      <% dataTeacher.forEach(teacher =>{ %>
+      <%var i = 1; dataTeacher.forEach(teacher =>{ %>
         <tr>
-          <td><%=teacher.id%></td>
+          <td><%=i%></td>
           <td><%=teacher.first_name%></td>
           <td><%=teacher.last_name%></td>
           <td><%=teacher.email%></td>
@@ -28,7 +28,7 @@
           <td><a href="/teacher/edit/<%=teacher.id%>">Edit</a>
               <a href="/teacher/delete/<%=teacher.id%>">Delete</a></td>
         </tr>
-      <%})%>
+      <%i++})%>
     </table>
   </body>
 </html>

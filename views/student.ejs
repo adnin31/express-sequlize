@@ -17,9 +17,9 @@
         <th>Actions</th>
         <th>Option</th>
       </tr>
-      <%dataStudent.forEach(data=>{%>
+      <% i = 1;dataStudent.forEach(data=>{%>
         <tr>
-          <th><%=data.id%></th>
+          <th><%=i%></th>
           <th><%=data.first_name%></th>
           <th><%=data.las_name%></th>
           <th><%=data.email%></th>
@@ -27,7 +27,7 @@
           <th><a href="/student/edit/<%=data.id%>">Edit</a>
           <a href="/student/delete/<%=data.id%>">Delete</a> </th>
         </tr>
-      <%})%>
+      <%i++})%>
     </table>
     <br><br>
 

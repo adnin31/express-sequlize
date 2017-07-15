@@ -5,7 +5,9 @@ const model = require("../models")
 const validator = require('validator')
 
 router.get('/',function(req,res){
-  model.Student.findAll().then(student =>{
+  model.Student.findAll({
+      order:[['first_name' ,'ASC']]
+  }).then(student =>{
     res.render('student',{dataStudent : student})
     })
 })

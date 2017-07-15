@@ -19,7 +19,7 @@
 
     <form action="/subject/<%=dataStudentSubject[0].id%>/giveScore" method="post">
       <input type="text" name="score" value="<%=dataStudentSubject[0].Score%>">
-      <button type="submit" name="button">Submit</button>
+      <button type="submit" name="button" value= "<%=dataStudentSubject[0].id%>">Submit</button>
     </form>
   </body>
 </html>
