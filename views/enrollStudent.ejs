@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1><%=dataStudentSubject[0].Subject.subject_name %></h1>
+    <table border="2">
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+      <%dataStudentSubject.forEach(data=>{%>
+        <tr>
+          <td><%=data.Student.first_name%>  <%=data.Student.las_name%></td>
+          <td><% if(data.Score == null){ %>
+            <a href="/subject/<%=data.id%>/giveScore">Give Score</a>
+          <%}else{ %>
+            <%=data.Score%>
+          <% } %>
+          </td>
+        </tr>
+      <%})%>
+    </table>
+  </body>
+</html>

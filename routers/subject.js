@@ -24,4 +24,28 @@ router.get('/delete/:id',function(req,res){
   res.redirect('/subject')
 })
 
+router.get('/:id/enrollStudent',function (req,res) {
+
+  model.StudentSubject.findAll({
+    where :{SubjectId : req.params.id},
+    include:[{all:true}]
+  }).then(studentSubject =>{
+    res.render('enrollStudent',{dataStudentSubject : studentSubject})
+  })
+})
+router.get('/:id/giveScore',function (req,res){
+  model.StudentSubject.findAll({
+    where :{id : req.params.id},
+    include:[{all:true}]
+  }).then(studentSubject =>{
+    res.render('givescore',{dataStudentSubject : studentSubject})
+  })
+})
+router.post('/:id/giveScore',function (req,res){
+  model.StudentSubject.update({
+    Score :req.body.score,
+    createdAt : new Date(),
+    updatedAt : new Date()
+  },{where : {id: req.params.id}}).then(()=>{res.redirect(`/subject/${req.params.id}/enrollStudent`)})
+})
 module.exports = router;

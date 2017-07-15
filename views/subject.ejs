@@ -12,16 +12,18 @@
         <th>id</th>
         <th>Subject</th>
         <th>Teachers</th>
+        <th>Actions</th>
       </tr>
       <%dataSubject.forEach(data => { %>
             <tr>
               <td><%= data.id %> </td>
               <td><%= data.subject_name %></td>
               <td><% var i = 1 ;data.Teachers.forEach(teacher => {%>
-                <%= i  %>
+                <%= i %>.
                 <%= teacher.first_name%>
                 <%=teacher.last_name%> <br>
               <%i++})%></td>
+              <td><a href="/subject/<%=data.id%>/enrollStudent">Enroll Student</a></td>
             </tr>
       <% }) %>
     </table>

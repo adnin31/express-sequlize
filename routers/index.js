@@ -4,7 +4,7 @@ const bodyParser = require ('body-parser');
 const model = require("../models")
 
 router.get('/',function(req,res){
-  res.send('Welcome')
+  res.render('index')
 })
 
 module.exports = router;

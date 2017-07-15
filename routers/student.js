@@ -59,6 +59,26 @@ if(validator.isEmail(req.body.email)){
 
 })
 
+router.get('/:id/addSubject',function (req,res){
+  model.Student.findAll({
+    where :{id:req.params.id}
+  }).then(student=>{
+    model.Subject.findAll().then(subject =>{
+      res.render('addStudentSubject', {dataStudent : student ,dataSubject : subject})
+    })
+  })
+
+})
+
+router.post('/:id/addSubject',function (req,res){
+    model.StudentSubject.create({
+      StudentId: req.params.id,
+      SubjectId: req.body.subjectList,
+      createdAt : new Date(),
+      updatedAt : new Date()
+    }).then(()=>res.redirect('/student'))
+})
+
 
 
 module.exports = router;
