@@ -16,14 +16,7 @@ router.post('/login',function(req,res){
     if(data){
       req.session.user = data.username,
       req.session.role = data.role
-      if (data.role == 'headmaster') {
-        res.redirect('/')
-      }
-      else if(data.role == 'teacher') {
-        res.redirect('/teacher')
-      }else if(data.role == 'academic') {
-        res.redirect('/')
-      }
+      res.redirect('/')
 
     }else {
       res.send('salah')

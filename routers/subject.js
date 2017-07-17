@@ -33,7 +33,7 @@ router.get('/:id/enrollStudent',function (req,res) {
     order:[['Student','first_name','ASC']]
   }).then(studentSubject =>{
     let scoreLetter = letterScore(studentSubject);
-    res.render('enrollStudent',{dataStudentSubject : studentSubject ,dataLetter: scoreLetter})
+    res.render('enrollStudent',{dataStudentSubject : studentSubject ,dataLetter: scoreLetter,session : req.session.role})
   })
 })
 
@@ -43,7 +43,7 @@ router.get('/:id/giveScore',function (req,res){
     where :{id : req.params.id},
     include:[{all:true}]
   }).then(studentSubject =>{
-    res.render('givescore',{dataStudentSubject : studentSubject})
+    res.render('givescore',{dataStudentSubject : studentSubject,session : req.session.role})
   })
 })
 
@@ -52,6 +52,11 @@ router.post('/:id/giveScore',function (req,res){
     Score :req.body.score,
     createdAt : new Date(),
     updatedAt : new Date()
-  },{where : {id: req.params.id}}).then(()=>{res.redirect(`/subject/`)})
+  },{where : {id: req.params.id}}).then(()=>{res.redirect(`/subject`)})
+})
+router.get('/logout',function(req,res){
+  req.session.destroy(function(err) {
+     res.redirect('/')
+  })
 })
 module.exports = router;

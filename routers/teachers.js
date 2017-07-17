@@ -59,6 +59,10 @@ router.get('/delete/:id',function (req,res) {
     where :{id : req.params.id}
   }).then(()=>res.redirect('/teacher'))
 })
-
+router.get('/logout',function(req,res){
+  req.session.destroy(function(err) {
+     res.redirect('/')
+  })
+})
 
 module.exports = router;

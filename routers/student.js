@@ -13,7 +13,7 @@ router.get('/',function(req,res){
 })
 
 router.get('/add',function(req,res){
-  res.render('addStudent')
+  res.render('addStudent',{session : req.session.role})
 })
 
 router.post('/add',function(req,res){
@@ -66,7 +66,7 @@ router.get('/:id/addSubject',function (req,res){
     where :{id:req.params.id}
   }).then(student=>{
     model.Subject.findAll().then(subject =>{
-      res.render('addStudentSubject', {dataStudent : student ,dataSubject : subject})
+      res.render('addStudentSubject', {dataStudent : student ,dataSubject : subject,session : req.session.role})
     })
   })
 
@@ -80,7 +80,11 @@ router.post('/:id/addSubject',function (req,res){
       updatedAt : new Date()
     }).then(()=>res.redirect('/student'))
 })
-
+router.get('/logout',function(req,res){
+  req.session.destroy(function(err) {
+     res.redirect('/')
+  })
+})
 
 
 module.exports = router;
