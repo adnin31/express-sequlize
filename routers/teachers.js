@@ -9,7 +9,7 @@ router.get('/',function(req,res){
     include :[model.Subject],
     order:[['first_name' ,'ASC']]
   }).then(teacher =>{
-      res.render('teacher',{dataTeacher : teacher, title : 'Teachers List'})
+      res.render('teacher',{dataTeacher : teacher, title : 'Teachers List',session : req.session.role})
   })
 })
 

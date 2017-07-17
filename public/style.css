@@ -47,3 +47,6 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.totheleft{
+    float: right;
+}
