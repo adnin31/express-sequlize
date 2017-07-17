@@ -6,6 +6,8 @@
   </head>
   <body>
     <h1>Edit Students</h1>
+    <%-include layout/menuBar%>
+      <link type="text/css" rel="stylesheet" href="/style.css">
     <a href="/student">Show all students</a>
     <form action="/student/edit/:id" method="post">
       <input type="text" name="id" value="<%=editStudent[0].id%>">

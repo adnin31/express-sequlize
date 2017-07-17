@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Add Subject To Student</title>
+      <link type="text/css" rel="stylesheet" href="/style.css">
   </head>
   <body>
-    
+    <%-include layout/menuBar%>
     <form  action="/student/<%=dataStudent[0].id%>/addSubject" method="post">
       <table>
         <%dataStudent.forEach(student =>{%>

@@ -8,7 +8,7 @@ router.get('/',function(req,res){
   model.Student.findAll({
       order:[['first_name' ,'ASC']]
   }).then(student =>{
-    res.render('student',{dataStudent : student})
+    res.render('student',{dataStudent : student, title :'Student List'})
     })
 })
 

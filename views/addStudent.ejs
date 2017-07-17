@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+      <link type="text/css" rel="stylesheet" href="/style.css">
   </head>
   <body>
     <h1>Add Contact</h1>
+    <%-include layout/menuBar%>
     <a href="/student">Show all students</a>
     <form action="/student/add" method="post">
       <input type="text" name="first_name" placeholder="First Name">

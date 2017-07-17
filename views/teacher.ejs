@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Teachers</title>
+  <%-include ./layout/title%>
+    <link type="text/css" rel="stylesheet" href="/style.css">
   </head>
   <body>
     <h1>Teachers</h1>
+      <%-include layout/menuBar%>
     <br>
     <a href="/teacher/add">Add Teachers</a>
     <br><br>
@@ -30,5 +32,8 @@
         </tr>
       <%i++})%>
     </table>
+    <br>
+    <h2><a href="/">Back to Home</a></h2>
+
   </body>
 </html>
