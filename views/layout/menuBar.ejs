@@ -1,0 +1,34 @@
+<nav>
+  <li><a href="/">Home</a></li>
+  <%if(session == 'teacher' ||session== 'headmaster' ||session == 'academic'){%>
+    <li class = "dropdown">
+      <a href="/student" class="dropbtn">Student</a>
+      <div class="dropdown-content">
+        <a href="/student/add">Add Student</a>
+      </div>
+    </li>
+  <%}%>
+
+  <%if(session == 'academic' ||session == 'headmaster'){%>
+
+    <li><a href="/subject">Subject</a></li>
+  <%}%>
+
+  <%if(session == 'headmaster'){%>
+    <li class = "dropdown" class="dropbtn">
+      <a href="/teacher">Teachers</a>
+      <div class="dropdown-content">
+        <a href="/student/add">Add Teacher</a>
+      </div>
+    </li>
+  <%}%>
+
+  <% if (session == 'headmaster' || session == 'teacher' ||session =='academic'){%>
+    <li class = 'totheleft'><a href="/logout">Logout</a></li>
+  <%} else {%>
+    <li class = 'totheleft'><a href="/login">Login</a></li>
+    <li class = 'totheleft'><a href="/signup">Signup</a></li>
+  <%}%>
+
+
+</nav>

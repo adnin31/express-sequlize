@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <%-include ./layout/title%>
+    <link type="text/css" rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>Teachers</h1>
+    <%-include layout/menuBar%>
+    <br>
+    <a href="/teacher/add">Add Teachers</a>
+    <br><br>
+    <table border="2">
+      <tr>
+        <th>id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Options</th>
+      </tr>
+      <%var i = 1; dataTeacher.forEach(teacher =>{ %>
+        <tr>
+          <td><%=i%></td>
+          <td><%=teacher.first_name%></td>
+          <td><%=teacher.last_name%></td>
+          <td><%=teacher.email%></td>
+          <td><%= teacher.Subject.subject_name%></td>
+          <td><a href="/teacher/edit/<%=teacher.id%>">Edit</a>
+              <a href="/teacher/delete/<%=teacher.id%>">Delete</a></td>
+        </tr>
+      <%i++})%>
+    </table>
+    <br>
+    <h2><a href="/">Back to Home</a></h2>
+
+  </body>
+</html>

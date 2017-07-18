@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Give a score</title>
+      <link type="text/css" rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>Give a score</h1>
+    <%-include layout/menuBar%>
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>Name</th>
+      </tr>
+      <tr>
+        <td><%=dataStudentSubject[0].Subject.subject_name%></td>
+        <td><%=dataStudentSubject[0].Student.first_name%> <%=dataStudentSubject[0].Student.las_name%></td>
+      </tr>
+    </table>
+
+    <form action="/subject/<%=dataStudentSubject[0].id%>/giveScore" method="post">
+      <input type="text" name="score" value="<%=dataStudentSubject[0].Score%>">
+      <button type="submit" name="button" value= "<%=dataStudentSubject[0].id%>">Submit</button>
+    </form>
+  </body>
+</html>

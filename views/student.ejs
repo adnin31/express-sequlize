@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <%-include ./layout/title%>
+      <link type="text/css" rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <center>
+      <%-include layout/menuBar%>
+      <h1>Student</h1>
+      <a href="/student/add">Add Student</a>
+      <br> <br>
+      <table border="2">
+        <tr>
+          <th>id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>email</th>
+          <th>Actions</th>
+          <th>Option</th>
+        </tr>
+        <% i = 1;dataStudent.forEach(data=>{%>
+          <tr>
+            <th><%=i%></th>
+            <th><%=data.first_name%></th>
+            <th><%=data.las_name%></th>
+            <th><%=data.email%></th>
+            <th><a href="/student/<%=data.id%>/addSubject">Add Subject</a></th>
+            <th>
+                <a href="/student/edit/<%=data.id%>">Edit</a>
+                <a href="/student/delete/<%=data.id%>">Delete</a>
+            </th>
+
+          </tr>
+        <%i++})%>
+      </table>
+    </center>
+
+
+    <br><br>
+      <h4><a href="/">Back to Home</a></h4>
+  </body>
+
+</html>

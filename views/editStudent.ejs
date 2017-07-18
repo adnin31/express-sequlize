@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Edit Students</h1>
+    <%-include layout/menuBar%>
+      <link type="text/css" rel="stylesheet" href="/style.css">
+    <a href="/student">Show all students</a>
+    <form action="/student/edit/:id" method="post">
+      <input type="text" name="id" value="<%=editStudent[0].id%>">
+      <input type="text" name="first_name" value="<%=editStudent[0].first_name%>">
+      <input type="text" name="last_name" value="<%=editStudent[0].las_name%>">
+      <input type="text" name="email" value="<%=editStudent[0].email%>">
+      <button type="submit" name="button">Submit</button>
+    </form>
+
+  </body>
+</html>

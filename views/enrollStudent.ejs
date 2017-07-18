@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <link type="text/css" rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1><%=dataStudentSubject[0].Subject.subject_name %></h1>
+      <%-include layout/menuBar%>
+    <br><br>
+    <table border="2">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Score</th>
+        <th>Score Letter</th>
+      </tr>
+      <%var i =0 ;dataStudentSubject.forEach(data=>{%>
+        <tr>
+          <td><%=data.Student.first_name%></td>
+          <td> <%=data.Student.las_name%></td>
+          <td><% if(data.Score == null){ %>
+            <a href="/subject/<%=data.id%>/giveScore">Give Score</a>
+          <%}else{ %>
+            <%=data.Score%>
+          <% } %>
+          </td>
+          <td><%=dataLetter[i]%></td>
+        </tr>
+      <%i++})%>
+    </table>
+  </body>
+</html>

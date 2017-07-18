@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <link type="text/css" rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>Edit Teachers</h1>
+    <%-include layout/menuBar%>
+
+    <a href="/teacher">Show all teacher</a>
+
+    <form action="/teacher/edit/:id" method="post">
+      <input type="text" name="id" value="<%=editTeacher[0].id%>"><br>
+      <input type="text" name="first_name" value="<%=editTeacher[0].first_name%>">
+      <br>
+      <input type="text" name="last_name" value="<%=editTeacher[0].last_name%>">
+      <br>
+      <input type="text" name="email" value="<%=editTeacher[0].email%>">
+      <br>
+      <select  name="subjectList">
+        <%dataSubject.forEach(subject =>{
+          var selected = "";
+          if(editTeacher[0].SubjectId == subject.id){
+            selected = "selected"
+          }%>
+          <option value="<%=editTeacher[0].SubjectId%>" <%= selected %> ><%=subject.subject_name%></option>
+        <%})%>
+      </select>
+      <input type="text" name="subject_id" value="<%=editTeacher[0].SubjectId%>">
+      <button type="submit" name="button">Submit</button>
+    </form>
+
+  </body>
+</html>

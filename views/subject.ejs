@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <%-include ./layout/title%>
+      <link type="text/css" rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <%-include layout/menuBar%>
+    <h1>Subject</h1>
+    <br><br>
+    <table border="2">
+      <tr>
+        <th>id</th>
+        <th>Subject</th>
+        <th>Teachers</th>
+        <th>Actions</th>
+      </tr>
+      <%dataSubject.forEach(data => { %>
+            <tr>
+              <td><%= data.id %> </td>
+              <td><%= data.subject_name %></td>
+              <td><% var i = 1 ;data.Teachers.forEach(teacher => {%>
+                <%= i %>.
+                <%= teacher.first_name%>
+                <%=teacher.last_name%> <br>
+              <%i++})%></td>
+              <td><a href="/subject/<%=data.id%>/enrollStudent">Enroll Student</a></td>
+            </tr>
+      <% }) %>
+    </table>
+    <br><br>
+    <form action="/subject" method="post">
+      <input type="text" name="name" placeholder="Name Subject">
+      <button type="submit" name="button">Submit</button>
+    </form>
+
+      <h2><a href="/">Back to Home</a></h2>
+  </body>
+</html>
