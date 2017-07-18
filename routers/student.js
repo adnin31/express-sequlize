@@ -4,6 +4,14 @@ const bodyParser = require ('body-parser');
 const model = require("../models")
 const validator = require('validator')
 
+router.use((req,res, next)=>{
+  console.log(req.session.role);
+  if(req.session.role == 'headmaster' || req.session.role == 'teacher' || req.session.rol == 'academic'){
+     next();
+  } else {
+    res.send('Access Denied');
+  }
+})
 router.get('/',function(req,res){
   model.Student.findAll({
       order:[['first_name' ,'ASC']]

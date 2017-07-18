@@ -18,6 +18,7 @@ let subject = require('./routers/subject')
 let teacher = require('./routers/teachers')
 let student = require('./routers/student')
 
+
 app.use(session({
   secret: 'hacktiv',
   resave: false,
@@ -25,16 +26,13 @@ app.use(session({
   cookie: {}
 }))
 
-
-
 app.use('/',index)
-
 
 app.use((req,res,next) =>{
   if(req.session.role){
     next()
   }else {
-    res.sendStatus(403)
+    res.send('Anda Harus login')
   }
 })
 app.use('/teacher',teacher)

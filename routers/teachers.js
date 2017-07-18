@@ -2,9 +2,15 @@ const express = require('express')
 let router = express.Router();
 const bodyParser = require('body-parser')
 const model = require('../models')
+router.use((req,res, next)=>{
+  if(req.session.role == 'headmaster'){
+     next();
+  } else {
+    res.send('Acess Denied ');
+  }
+})
 
 router.get('/',function(req,res){
-
   model.Teachers.findAll({
     include :[model.Subject],
     order:[['first_name' ,'ASC']]
